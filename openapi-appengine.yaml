@@ -1,0 +1,47 @@
+# [START swagger]
+swagger: "2.0"
+info:
+  description: "Blog entries for jamesknight.ca"
+  title: "jamesknight.ca blog"
+  version: "1.0.0"
+host: "jamesknight-206819.appspot.com"
+# [END swagger]
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "https"
+paths:
+  "/blog":
+    get:
+      description: "Returns all blog entries."
+      operationId: "blog_all"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Blog."
+          schema:
+            $ref: "#/definitions/blog"
+definitions:
+  blog:
+    type: "array"
+    items:
+      type: "object"
+      properties:
+        date:
+          type: "string"
+        details:
+          type: "string"
+        title:
+          type: "string"
+# This section requires all requests to any path to require an API key.
+security:
+- api_key: []
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"

@@ -1,0 +1,31 @@
+{
+  "name": "endpoints",
+  "description": "Endpoints for jamesknight.ca blog",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "James Knight",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knightjdr/personal-page-backend.git"
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "scripts": {
+    "deploy": "gcloud beta app deploy",
+    "endpoints": "gcloud endpoints services deploy openapi-appengine.yaml",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "@google-cloud/datastore": "^1.4.0",
+    "safe-buffer": "5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}
