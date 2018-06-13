@@ -24,6 +24,30 @@ paths:
           description: "Blog."
           schema:
             $ref: "#/definitions/blog"
+  "/blog/latest":
+    get:
+      description: "Returns latest blog entry."
+      operationId: "blog_latest"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Latest blog."
+          schema:
+            $ref: "#/definitions/blogEntry"
+  "/blog/{title}":
+    get:
+      description: "Returns specified blog entry by title."
+      operationId: "blog_title"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Blog entry."
+          schema:
+            $ref: "#/definitions/blogEntry"
+        404:
+          description: "Entry not found."
 definitions:
   blog:
     type: "array"
@@ -36,6 +60,15 @@ definitions:
           type: "string"
         title:
           type: "string"
+  blogEntry:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+      details:
+        type: "string"
+      title:
+        type: "string"
 # This section requires all requests to any path to require an API key.
 security:
 - api_key: []

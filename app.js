@@ -1,10 +1,8 @@
-'use strict';
-
 // [START setup]
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const BlogAll = require('./blog-all');
+const Routes = require('./routes');
 
 const app = express();
 
@@ -12,9 +10,7 @@ app.set('case sensitive routing', true);
 app.use(bodyParser.json());
 // [END setup]
 
-app.get('/blog', (req, res) => {
-  BlogAll(res);
-});
+Routes.configure(app);
 
 if (module === require.main) {
   // [START listen]

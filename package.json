@@ -2,7 +2,6 @@
   "name": "endpoints",
   "description": "Endpoints for jamesknight.ca blog",
   "version": "0.0.1",
-  "private": true,
   "license": "MIT",
   "author": "James Knight",
   "repository": {
@@ -18,10 +17,9 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "1.18.2",
-    "express": "4.16.2",
     "@google-cloud/datastore": "^1.4.0",
-    "safe-buffer": "5.1.1"
+    "body-parser": "1.18.2",
+    "express": "4.16.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
