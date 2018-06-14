@@ -39,6 +39,12 @@ paths:
     get:
       description: "Returns specified blog entry by title."
       operationId: "blog_title"
+      parameters:
+        - in: path
+          name: title
+          type: string
+          required: true
+          description: URI encoded blog title
       produces:
       - "application/json"
       responses:

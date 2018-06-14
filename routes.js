@@ -1,4 +1,4 @@
-const Blog = require('./blog');
+const Blog = require('./blog/blog');
 
 const Routes = {
   configure: (app) => {
@@ -20,10 +20,20 @@ const Routes = {
 
     // Get entry by title.
     app.get('/blog/:title', (req, res) => {
-      Blog.title(req.params.title)
+      Blog.title(decodeURI(req.params.title))
         .then((content) => {
           Routes.response(res, content);
         });
+    });
+
+    // Invalid get route.
+    app.get('/*', (req, res) => {
+      res.status(404).send();
+    });
+
+    // Invalid methods.
+    app.use((req, res) => {
+      res.status(405).send();
     });
   },
   response: (res, content) => {
@@ -31,7 +41,7 @@ const Routes = {
     res.setHeader('X-XSS-Protection', '1;mode=block');
     res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.status(content.status).send(content.data);
+    res.status(content.status).send(content.body);
   },
 };
 module.exports = Routes;
