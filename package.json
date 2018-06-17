@@ -14,11 +14,13 @@
   "scripts": {
     "deploy": "gcloud beta app deploy",
     "endpoints": "gcloud endpoints services deploy openapi-appengine.yaml",
-    "start": "node app.js"
+    "start": "NODE_ENV=production node app.js", 
+    "dev": "NODE_ENV=development node app.js"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.4.0",
     "body-parser": "1.18.2",
+    "cors": "^2.8.4",
     "express": "4.16.2"
   },
   "devDependencies": {
