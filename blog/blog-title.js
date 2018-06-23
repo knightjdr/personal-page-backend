@@ -11,6 +11,9 @@ const BlogTitle = (datastore, title) => (
         const entry = {
           date: results[0][0].date,
           details: results[0][0].details,
+          img: results[0][0].img,
+          imgAlt: results[0][0].imgAlt,
+          imgCredit: results[0][0].imgCredit,
           title: results[0][0].title,
         };
         resolve({

@@ -34,7 +34,7 @@ paths:
         200:
           description: "Latest blog."
           schema:
-            $ref: "#/definitions/blogEntry"
+            $ref: "#/definitions/blogEntryPartial"
   "/blog/{title}":
     get:
       description: "Returns specified blog entry by title."
@@ -51,7 +51,7 @@ paths:
         200:
           description: "Blog entry."
           schema:
-            $ref: "#/definitions/blogEntry"
+            $ref: "#/definitions/blogEntryFull"
         404:
           description: "Entry not found."
 definitions:
@@ -66,12 +66,27 @@ definitions:
           type: "string"
         title:
           type: "string"
-  blogEntry:
+  blogEntryPartial:
     type: "object"
     properties:
       date:
         type: "string"
       details:
+        type: "string"
+      title:
+        type: "string"
+  blogEntryFull:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+      details:
+        type: "string"
+      img:
+        type: "string"
+      imgAlt:
+        type: "string"
+      imgCredit:
         type: "string"
       title:
         type: "string"
