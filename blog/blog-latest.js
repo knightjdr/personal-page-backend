@@ -15,7 +15,7 @@ const BlogLatest = datastore => (
         title: result[0][0].title,
       };
       resolve({
-        body: { latest },
+        body: latest,
         status: 200,
       });
     });

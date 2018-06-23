@@ -15,7 +15,7 @@ const BlogAll = datastore => (
         title: entry.title,
       }));
       resolve({
-        body: { entries },
+        body: entries,
         status: 200,
       });
     });

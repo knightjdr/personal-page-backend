@@ -14,7 +14,7 @@ const BlogTitle = (datastore, title) => (
           title: results[0][0].title,
         };
         resolve({
-          body: { entry },
+          body: entry,
           status: 200,
         });
       } else {
