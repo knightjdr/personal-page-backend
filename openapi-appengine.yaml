@@ -80,13 +80,17 @@ definitions:
     properties:
       date:
         type: "string"
-      details:
-        type: "string"
-      img:
+      html:
         type: "string"
       imgAlt:
         type: "string"
       imgCredit:
+        type: "string"
+      sizes:
+        type: "string"
+      src:
+        type: "string"
+      srcset:
         type: "string"
       title:
         type: "string"

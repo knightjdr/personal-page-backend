@@ -10,10 +10,12 @@ const BlogTitle = (datastore, title) => (
       if (results[0][0]) {
         const entry = {
           date: results[0][0].date,
-          details: results[0][0].details,
-          img: results[0][0].img,
+          html: results[0][0].html,
           imgAlt: results[0][0].imgAlt,
           imgCredit: results[0][0].imgCredit,
+          sizes: results[0][0].sizes,
+          src: results[0][0].srcset,
+          srcset: results[0][0].srcset,
           title: results[0][0].title,
         };
         resolve({
